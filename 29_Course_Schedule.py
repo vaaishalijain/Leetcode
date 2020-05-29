@@ -9,8 +9,6 @@
         Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all
         courses?
 
-
-
         Example 1:
 
         Input: numCourses = 2, prerequisites = [[1,0]]
@@ -32,6 +30,7 @@
         a graph is represented.
         You may assume that there are no duplicate edges in the input prerequisites.
         1 <= numCourses <= 10^5
+
 """
 
 
