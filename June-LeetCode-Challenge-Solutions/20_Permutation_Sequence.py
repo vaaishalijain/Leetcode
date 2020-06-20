@@ -33,22 +33,16 @@
 
 class Solution:
     def getPermutation(self, n: int, k: int) -> str:
-        fact, dig = [1] * n, [1] * n
+        fact,dig=[1]*n,[1]*n
         for i in range(1, n):
-            fact[i] = (i + 1) * fact[i - 1]
-            dig[i] = i + 1
-        ans = ''
-        while len(ans) < n - 1:
-            rep = fact[-2]
-            ne = int((k - 1) / rep)
-            ans += str(dig[ne])
+            fact[i]=i*fact[i-1]
+            dig[i]=i+1
+        k-=1
+        ans=''
+        for i in range(n-1,-1,-1):
+            rep=fact[i]
+            ne=int(k/rep)
+            k=k%rep
+            ans+=str(dig[ne])
             dig.pop(ne)
-            fact.pop()
-            k = k % rep
-            if k == 0:
-                for i in range(len(dig) - 1, -1, -1):
-                    ans += str(dig[i])
-
-        if len(ans) < n:
-            ans += str(dig[0])
         return ans
